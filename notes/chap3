@@ -1,0 +1,9 @@
+- to add jersey, I had to import the following:
+<dependency>
+    <groupId>org.glassfish.jersey.media</groupId>
+    <artifactId>jersey-media-json-jackson</artifactId>
+</dependency>
+
+- this imported jersey's native jackson integration
+
+- Then, I registered JacksonFeature.class in the resourceconfig constructor

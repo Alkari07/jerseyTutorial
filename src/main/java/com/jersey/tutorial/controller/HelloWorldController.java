@@ -6,6 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 //a path can begin with / or not, it doesn't matter
 @Path("/helloworld")
@@ -29,7 +30,7 @@ public class HelloWorldController {
     }
 
     @GET
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("json")
     public HelloWorldMsg getMsgObject() {
         HelloWorldMsg msg = new HelloWorldMsg();

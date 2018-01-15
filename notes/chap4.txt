@@ -1,0 +1,46 @@
+- extending resource config on a MyApplication class or registering a resource config when the server is stood up
+    (as is done in this project) is how you register REST modules such as package scanning, Jackson, etc.
+
+- Glassfish is a webserver implimentation, similar to tomcat
+
+- Web Server: Serves static content, like html.  Files on a server file system
+    - Can generate dynamic content with plugins like ASP.NET
+- Application server: hosts an application which is running using technology like Java
+    - provides transactions, security, concurrency, and other server side programming tools
+    - Web container: runs things like servlets, JSP, JSF, and web services (ex: apache tomcat, grizzly, Jetty)
+    - Application client container: Dependency injection, security
+    - EJB: runs EJB lifecycle, Java Transaction Api (transaction management)
+    - These are logical divisions in an application server
+    - Application servers; webSphere, WebLogic, Jboss, glassfish
+
+- Glassfish is a technology stack to impliment scalable java servers allowing for thousands of concurrent users
+    - Glassfish is Oracles implimentation of the Java EE standard
+        - Other implimentations include JBoss
+        - Partial implimentations are things like Apache Tomcat, Jetty.  Apache Tomcat is viewed as EE lite, it's
+        just a web server and servlet container
+
+- Servers are spun up by invoking a factory method to creat an HTTP server (see the main.java class)
+    - The resource config is provided to this to establish the Jersey framework in glassfish
+
+- Jersey containers can be registered as a servlet or servlet filter
+    - Intercepts and modifies client (browser) requests before it reaches backend servlet services
+    - Also can intercept on the way back.
+    - I think an example of this was the view rendering in spring?
+    - filters replaces the older concept of servlet chaining.  WAs standardized as part of the J2EE 2.3 spec
+    - Requests pass through servlet filters in order, then return from the servlet in reverse order
+    - Why use a filter?
+        - Can reuse filter code to modify requests without rebuilding the application
+        - applied by configuration settings, rather than changing the servlet java code
+        - filters can be chained together
+        - initialization parameters are controlled by params passed in by the deployment descripters
+        - examples:
+            - authentication filter
+            - record all incoming requests
+            - Log IP of computers making requests
+            - Data encryption/decryption
+            - Data compression
+            - Auditing access to sensitive resources
+            - Take an action whenever there is a system error
+
+- Can define configuration programatically and without a deployment descriptor
+

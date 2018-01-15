@@ -1,0 +1,7 @@
+- An architecture paradigm used for highly scalable systems operating 1000's of servers with no maintenance downtime
+- Reactive;
+    - Reacts to events (event driven)
+    - Reacts to load (scalable)
+    - Reacts to failures (resilient)
+    - React to users (responsive)
+- Events are handled asynchronously, without blocking
